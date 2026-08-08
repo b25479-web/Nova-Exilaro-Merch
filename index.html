@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Exilaro — XLRI Merch Store</title>
+<meta name="description" content="Nova Exilaro merch store — polos, oversized tees, hoodies and desk pieces.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     PROMO BANNER
+     ============================================================ -->
+<div class="promo-banner">
+  Shop ₹5,000+ and get ₹500 of merchandise free
+</div>
+
+<!-- ============================================================
+     NAVBAR — logo + cart only, per the minimal flow requirement
+     ============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand">
+      <img src="branding/nova-exilaro-dark.png" alt="Nova Exilaro">
+    </a>
+    <button class="cart-trigger" id="cartTrigger" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO — the actual catalogue cover, static, no animation
+     ============================================================ -->
+<section class="hero" id="hero">
+  <img class="hero-cover-img" src="branding/hero-cover.jpg" alt="Nova Exilaro merch catalogue cover">
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="hero-card">
+      <img class="hero-xlri-mark" src="branding/xlri-black.png" alt="XLRI Xavier School of Management">
+      <p class="hero-desc">Nova Exilaro merch for the XLRI Delhi-NCR batch — polos, oversized tees, hoodies and desk pieces.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" id="shopNowBtn">Shop the Collection</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MERCHANDISE / CATALOGUE
+     ============================================================ -->
+<section class="merch-section" id="merch">
+  <div class="container">
+    <div class="merch-header">
+      <div class="merch-header-text">
+        <span class="eyebrow">The Collection</span>
+        <h2 class="section-heading">Merchandise</h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="All">All</button>
+        <button class="filter-tab" data-filter="Apparel">Apparel</button>
+        <button class="filter-tab" data-filter="Accessories">Accessories</button>
+      </div>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CHECKOUT
+     ============================================================ -->
+<section class="checkout-section" id="checkoutSection">
+  <div class="container">
+    <a href="#" class="checkout-back" id="checkoutBack">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      Back to shopping
+    </a>
+
+    <div class="checkout-grid">
+      <div class="checkout-left">
+
+        <div class="panel">
+          <div class="panel-title"><span class="panel-step">1</span>Customer Details</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="fieldRoll">Roll Number</label>
+              <input class="form-input" type="text" id="fieldRoll" placeholder="e.g. 24BM1234">
+              <div class="form-error-msg"></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fieldName">Full Name</label>
+              <input class="form-input" type="text" id="fieldName" placeholder="Your full name">
+              <div class="form-error-msg"></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fieldPhone">Phone Number</label>
+              <input class="form-input" type="tel" id="fieldPhone" placeholder="10-digit mobile number">
+              <div class="form-error-msg"></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fieldEmail">Email</label>
+              <input class="form-input" type="email" id="fieldEmail" placeholder="you@xlri.ac.in">
+              <div class="form-error-msg"></div>
+            </div>
+            <div class="form-group full">
+              <label class="form-label" for="fieldBatch">Batch</label>
+              <input class="form-input" type="text" id="fieldBatch" placeholder="e.g. BM 2026-28">
+              <div class="form-error-msg"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><span class="panel-step">2</span>Eligibility &amp; Caution Deposit</div>
+
+          <div class="option-label" style="margin-bottom:10px;">I am a</div>
+          <div class="persona-group">
+            <label class="persona-option">
+              <input type="radio" name="persona" value="delhi" checked>
+              <span>XLRI Delhi-NCR Student</span>
+            </label>
+            <label class="persona-option">
+              <input type="radio" name="persona" value="faculty">
+              <span>Faculty</span>
+            </label>
+            <label class="persona-option">
+              <input type="radio" name="persona" value="jamshedpur">
+              <span>XLRI Jamshedpur</span>
+            </label>
+            <label class="persona-option">
+              <input type="radio" name="persona" value="alum">
+              <span>Alum</span>
+            </label>
+          </div>
+
+          <div class="persona-extra-fields" id="personaExtraFields" style="display:none;">
+            <div class="form-group full">
+              <label class="form-label" for="fieldAddress">Address</label>
+              <textarea class="form-input" id="fieldAddress" rows="2" placeholder="Delivery address"></textarea>
+            </div>
+            <div class="form-group full">
+              <label class="form-label" for="fieldAdditionalDetails">Additional Details</label>
+              <textarea class="form-input" id="fieldAdditionalDetails" rows="2" placeholder="Anything the committee should know for delivery / coordination"></textarea>
+            </div>
+          </div>
+
+          <div class="toggle-row" id="cautionToggleRow" style="margin-top:16px;">
+            <div class="toggle-copy">
+              <strong>Use Caution Deposit?</strong>
+              <span>Offsets up to ₹5,000 of your bill. Only available for XLRI Delhi-NCR students.</span>
+            </div>
+            <button class="toggle-switch" id="cautionToggle" type="button" aria-label="Toggle caution deposit"></button>
+          </div>
+
+          <label class="acknowledge-row" id="acknowledgeRow" style="display:none;">
+            <input type="checkbox" id="acknowledgeCheck">
+            <span>I hereby confirm the use of my caution deposit for Nova Exilaro merchandise and authorize the committee to adjust it against this order accordingly.</span>
+          </label>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><span class="panel-step">3</span>Payment</div>
+
+          <div class="payment-qr-block">
+            <img class="qr-image" src="images/payment-qr.png" alt="UPI payment QR code">
+            <div class="payment-details">
+              <span>Scan to pay via UPI</span>
+              <strong id="upiIdDisplay"></strong>
+              <span>Pay the exact transfer amount shown below</span>
+            </div>
+          </div>
+
+          <label class="upload-zone" id="uploadZone">
+            <input type="file" id="screenshotInput" accept="image/*">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+            <div class="upload-text">Upload payment screenshot</div>
+            <div class="upload-hint" id="uploadHint">PNG or JPG, click or drag to upload</div>
+          </label>
+
+          <div class="upload-preview" id="uploadPreview">
+            <img id="uploadPreviewImg" alt="Payment screenshot preview">
+            <div class="upload-preview-info">
+              <strong id="uploadPreviewName"></strong>
+              <span id="uploadPreviewSize"></span>
+            </div>
+            <span class="upload-replace">Replace</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="checkout-right">
+        <div class="billing-summary">
+          <div class="billing-title">Billing Summary</div>
+
+          <div class="cart-line-items" id="billingLineItems"></div>
+
+          <div class="ledger-row"><span>Cart Total</span><span id="billingCartTotal">₹0</span></div>
+          <div class="ledger-row discount" id="billingDiscountRow" style="display:none;"><span>Discount</span><span id="billingDiscount">− ₹0</span></div>
+          <div class="ledger-row" id="billingCautionRow" style="display:none;"><span>Caution Deposit Used</span><span id="billingCautionUsed">− ₹0</span></div>
+          <div class="ledger-row total"><span>Transfer Amount</span><span id="billingTransfer">₹0</span></div>
+
+          <button class="btn btn-navy btn-block" id="submitOrderBtn" style="margin-top:20px;">Submit Order</button>
+          <div class="form-status" id="formStatus"></div>
+          <div class="submit-note">By submitting, you confirm the payment screenshot matches the transfer amount above.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="brand">
+          <img src="branding/nova-exilaro-light.png" alt="Nova Exilaro">
+        </a>
+        <p class="footer-tagline">Nova Exilaro merch, run by the committee, for the batch.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p id="footerTeamName"></p>
+        <a id="footerEmail" href="#"></a>
+        <div class="footer-poc" id="footerPocList"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#merch">Merchandise</a>
+        <a href="#" id="footerCartLink">Cart</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footerYear"></span> Nova Exilaro</span>
+      <strong>Made with ❤️ at XLRI</strong>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     CART DRAWER
+     ============================================================ -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="drawer-header">
+    <div class="drawer-title">Your Cart</div>
+    <button class="drawer-close" id="drawerClose" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-footer" id="drawerFooter">
+    <div class="drawer-subtotal"><span>Subtotal</span><strong id="drawerSubtotalValue">₹0</strong></div>
+    <button class="btn btn-primary btn-block" id="drawerCheckoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <div class="lightbox-stage" id="lightboxStage">
+    <img id="lightboxImg" alt="">
+  </div>
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- ============================================================
+     SUCCESS SCREEN — minimal per spec
+     ============================================================ -->
+<div class="success-screen" id="successScreen">
+  <div class="success-inner">
+    <div class="success-check">
+      <svg viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="24" stroke="currentColor" stroke-width="2"/>
+        <path d="M15 27l7 7 15-15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2 class="success-title">Order Submitted Successfully</h2>
+    <p class="success-desc">Thank you.</p>
+    <button class="btn btn-outline" id="returnHomeBtn" style="color:#f3f0e8; box-shadow: inset 0 0 0 1.5px rgba(243,240,232,0.3);">Return Home</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     PERSISTENT DISCOUNT PROGRESS BAR
+     ============================================================ -->
+<div class="progress-bar" id="progressBar">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span id="progressText"></span>
+</div>
+
+<!-- ============================================================
+     TOAST
+     ============================================================ -->
+<div class="toast" id="toast">
+  <span class="toast-dot"></span>
+  <span></span>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/script.js"></script>
+<script>
+  document.getElementById('upiIdDisplay').textContent = SETTINGS.upiId;
+  document.getElementById('footerTeamName').textContent = SETTINGS.contact.teamName;
+  document.getElementById('footerEmail').textContent = SETTINGS.contact.email;
+  document.getElementById('footerEmail').href = 'mailto:' + SETTINGS.contact.email;
+
+  const pocList = document.getElementById('footerPocList');
+  SETTINGS.contact.pocs.forEach(function (poc) {
+    const wrap = document.createElement('div');
+    wrap.innerHTML = '<strong>' + poc.name + ' (' + poc.roll + ')</strong><span>' + poc.phone + '</span>';
+    pocList.appendChild(wrap);
+  });
+
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+  document.getElementById('footerCartLink').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('cartTrigger').click();
+  });
+</script>
+
+</body>
+</html>
