@@ -306,6 +306,27 @@ input, textarea, select {
 
 .hero-xlri-mark { height: 30px; width: auto; }
 
+.hero-caution-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--bone);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: normal;
+  text-align: center;
+}
+
+.hero-caution-badge::before {
+  content: "💳";
+  font-size: 13px;
+}
+
 .hero-desc {
   max-width: 46ch;
   font-size: clamp(14px, 1.6vw, 16.5px);
@@ -804,7 +825,7 @@ input, textarea, select {
 .checkout-section { padding: calc(var(--nav-h) + var(--promo-h) + 40px) 0 140px; display: none; }
 .checkout-section.active { display: block; }
 
-.checkout-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: flex-start; }
+.checkout-single { display: flex; flex-direction: column; gap: 24px; max-width: 640px; margin: 0 auto; }
 
 .checkout-back {
   display: inline-flex;
@@ -847,6 +868,9 @@ input, textarea, select {
   justify-content: center;
   flex-shrink: 0;
 }
+
+/* on the dark billing-summary card, invert so the badge stays visible */
+.billing-title .panel-step { background: var(--spark); color: var(--ink); }
 
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -903,7 +927,10 @@ input, textarea, select {
 .toggle-switch.on::after { transform: translateX(20px); }
 
 .billing-summary { background: var(--ink); color: var(--bone); border-radius: var(--radius-lg); padding: 28px 28px 24px; }
-.billing-title { font-family: var(--font-display); font-weight: 700; font-size: 18px; margin-bottom: 20px; }
+.billing-title { font-family: var(--font-display); font-weight: 700; font-size: 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
+.submit-panel { display: flex; flex-direction: column; gap: 12px; }
+.submit-panel .submit-note { text-align: center; }
 
 .ledger-row {
   display: flex;
@@ -1225,7 +1252,7 @@ input, textarea, select {
    ============================================================ */
 
 @media (max-width: 860px) {
-  .checkout-grid { grid-template-columns: 1fr; }
+  .checkout-single { padding: 0 4px; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
 }

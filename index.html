@@ -45,6 +45,7 @@
   <div class="hero-content">
     <div class="hero-card">
       <img class="hero-xlri-mark" src="branding/xlri-black.png" alt="XLRI Xavier School of Management">
+      <div class="hero-caution-badge">Pay through your Caution Deposit — up to ₹5,000 covered</div>
       <p class="hero-desc">Nova Exilaro merch for the XLRI Delhi-NCR batch — polos, oversized tees, hoodies and desk pieces.</p>
       <div class="hero-cta">
         <button class="btn btn-primary" id="shopNowBtn">Shop the Collection</button>
@@ -84,134 +85,130 @@
       Back to shopping
     </a>
 
-    <div class="checkout-grid">
-      <div class="checkout-left">
-
-        <div class="panel">
-          <div class="panel-title"><span class="panel-step">1</span>Customer Details</div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="fieldRoll">Roll Number</label>
-              <input class="form-input" type="text" id="fieldRoll" placeholder="e.g. 24BM1234">
-              <div class="form-error-msg"></div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fieldName">Full Name</label>
-              <input class="form-input" type="text" id="fieldName" placeholder="Your full name">
-              <div class="form-error-msg"></div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fieldPhone">Phone Number</label>
-              <input class="form-input" type="tel" id="fieldPhone" placeholder="10-digit mobile number">
-              <div class="form-error-msg"></div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fieldEmail">Email</label>
-              <input class="form-input" type="email" id="fieldEmail" placeholder="you@xlri.ac.in">
-              <div class="form-error-msg"></div>
-            </div>
-            <div class="form-group full">
-              <label class="form-label" for="fieldBatch">Batch</label>
-              <input class="form-input" type="text" id="fieldBatch" placeholder="e.g. BM 2026-28">
-              <div class="form-error-msg"></div>
-            </div>
+    <div class="checkout-single">
+      <div class="panel">
+        <div class="panel-title"><span class="panel-step">1</span>Customer Details</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="fieldRoll">Roll Number</label>
+            <input class="form-input" type="text" id="fieldRoll" placeholder="e.g. 24BM1234">
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fieldName">Full Name</label>
+            <input class="form-input" type="text" id="fieldName" placeholder="Your full name">
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fieldPhone">Phone Number</label>
+            <input class="form-input" type="tel" id="fieldPhone" placeholder="10-digit mobile number">
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fieldEmail">Email</label>
+            <input class="form-input" type="email" id="fieldEmail" placeholder="you@xlri.ac.in">
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group full">
+            <label class="form-label" for="fieldBatch">Batch</label>
+            <input class="form-input" type="text" id="fieldBatch" placeholder="e.g. BM 2026-28">
+            <div class="form-error-msg"></div>
           </div>
         </div>
-
-        <div class="panel">
-          <div class="panel-title"><span class="panel-step">2</span>Eligibility &amp; Caution Deposit</div>
-
-          <div class="option-label" style="margin-bottom:10px;">I am a</div>
-          <div class="persona-group">
-            <label class="persona-option">
-              <input type="radio" name="persona" value="delhi" checked>
-              <span>XLRI Delhi-NCR Student</span>
-            </label>
-            <label class="persona-option">
-              <input type="radio" name="persona" value="faculty">
-              <span>Faculty</span>
-            </label>
-            <label class="persona-option">
-              <input type="radio" name="persona" value="jamshedpur">
-              <span>XLRI Jamshedpur</span>
-            </label>
-            <label class="persona-option">
-              <input type="radio" name="persona" value="alum">
-              <span>Alum</span>
-            </label>
-          </div>
-
-          <div class="persona-extra-fields" id="personaExtraFields" style="display:none;">
-            <div class="form-group full">
-              <label class="form-label" for="fieldAddress">Address</label>
-              <textarea class="form-input" id="fieldAddress" rows="2" placeholder="Delivery address"></textarea>
-            </div>
-            <div class="form-group full">
-              <label class="form-label" for="fieldAdditionalDetails">Additional Details</label>
-              <textarea class="form-input" id="fieldAdditionalDetails" rows="2" placeholder="Anything the committee should know for delivery / coordination"></textarea>
-            </div>
-          </div>
-
-          <div class="toggle-row" id="cautionToggleRow" style="margin-top:16px;">
-            <div class="toggle-copy">
-              <strong>Use Caution Deposit?</strong>
-              <span>Offsets up to ₹5,000 of your bill. Only available for XLRI Delhi-NCR students.</span>
-            </div>
-            <button class="toggle-switch" id="cautionToggle" type="button" aria-label="Toggle caution deposit"></button>
-          </div>
-
-          <label class="acknowledge-row" id="acknowledgeRow" style="display:none;">
-            <input type="checkbox" id="acknowledgeCheck">
-            <span>I hereby confirm the use of my caution deposit for Nova Exilaro merchandise and authorize the committee to adjust it against this order accordingly.</span>
-          </label>
-        </div>
-
-        <div class="panel">
-          <div class="panel-title"><span class="panel-step">3</span>Payment</div>
-
-          <div class="payment-qr-block">
-            <img class="qr-image" src="images/payment-qr.png" alt="UPI payment QR code">
-            <div class="payment-details">
-              <span>Scan to pay via UPI</span>
-              <strong id="upiIdDisplay"></strong>
-              <span>Pay the exact transfer amount shown below</span>
-            </div>
-          </div>
-
-          <label class="upload-zone" id="uploadZone">
-            <input type="file" id="screenshotInput" accept="image/*">
-            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-            <div class="upload-text">Upload payment screenshot</div>
-            <div class="upload-hint" id="uploadHint">PNG or JPG, click or drag to upload</div>
-          </label>
-
-          <div class="upload-preview" id="uploadPreview">
-            <img id="uploadPreviewImg" alt="Payment screenshot preview">
-            <div class="upload-preview-info">
-              <strong id="uploadPreviewName"></strong>
-              <span id="uploadPreviewSize"></span>
-            </div>
-            <span class="upload-replace">Replace</span>
-          </div>
-        </div>
-
       </div>
 
-      <div class="checkout-right">
-        <div class="billing-summary">
-          <div class="billing-title">Billing Summary</div>
+      <div class="panel">
+        <div class="panel-title"><span class="panel-step">2</span>Eligibility &amp; Caution Deposit</div>
 
-          <div class="cart-line-items" id="billingLineItems"></div>
-
-          <div class="ledger-row"><span>Cart Total</span><span id="billingCartTotal">₹0</span></div>
-          <div class="ledger-row discount" id="billingDiscountRow" style="display:none;"><span>Discount</span><span id="billingDiscount">− ₹0</span></div>
-          <div class="ledger-row" id="billingCautionRow" style="display:none;"><span>Caution Deposit Used</span><span id="billingCautionUsed">− ₹0</span></div>
-          <div class="ledger-row total"><span>Transfer Amount</span><span id="billingTransfer">₹0</span></div>
-
-          <button class="btn btn-navy btn-block" id="submitOrderBtn" style="margin-top:20px;">Submit Order</button>
-          <div class="form-status" id="formStatus"></div>
-          <div class="submit-note">By submitting, you confirm the payment screenshot matches the transfer amount above.</div>
+        <div class="option-label" style="margin-bottom:10px;">I am a</div>
+        <div class="persona-group">
+          <label class="persona-option">
+            <input type="radio" name="persona" value="delhi" checked>
+            <span>XLRI Delhi-NCR Student</span>
+          </label>
+          <label class="persona-option">
+            <input type="radio" name="persona" value="faculty">
+            <span>Faculty</span>
+          </label>
+          <label class="persona-option">
+            <input type="radio" name="persona" value="jamshedpur">
+            <span>XLRI Jamshedpur</span>
+          </label>
+          <label class="persona-option">
+            <input type="radio" name="persona" value="alum">
+            <span>Alum</span>
+          </label>
         </div>
+
+        <div class="persona-extra-fields" id="personaExtraFields" style="display:none;">
+          <div class="form-group full">
+            <label class="form-label" for="fieldAddress">Address</label>
+            <textarea class="form-input" id="fieldAddress" rows="2" placeholder="Delivery address"></textarea>
+          </div>
+          <div class="form-group full">
+            <label class="form-label" for="fieldAdditionalDetails">Additional Details</label>
+            <textarea class="form-input" id="fieldAdditionalDetails" rows="2" placeholder="Anything the committee should know for delivery / coordination"></textarea>
+          </div>
+        </div>
+
+        <div class="toggle-row" id="cautionToggleRow" style="margin-top:16px;">
+          <div class="toggle-copy">
+            <strong>Use Caution Deposit?</strong>
+            <span>Offsets up to ₹5,000 of your bill. Only available for XLRI Delhi-NCR students.</span>
+          </div>
+          <button class="toggle-switch" id="cautionToggle" type="button" aria-label="Toggle caution deposit"></button>
+        </div>
+
+        <label class="acknowledge-row" id="acknowledgeRow" style="display:none;">
+          <input type="checkbox" id="acknowledgeCheck">
+          <span>I hereby confirm the use of my caution deposit for Nova Exilaro merchandise and authorize the committee to adjust it against this order accordingly.</span>
+        </label>
+      </div>
+
+      <div class="billing-summary">
+        <div class="billing-title"><span class="panel-step">3</span>Billing Summary</div>
+
+        <div class="cart-line-items" id="billingLineItems"></div>
+
+        <div class="ledger-row"><span>Cart Total</span><span id="billingCartTotal">₹0</span></div>
+        <div class="ledger-row discount" id="billingDiscountRow" style="display:none;"><span>Discount</span><span id="billingDiscount">− ₹0</span></div>
+        <div class="ledger-row" id="billingCautionRow" style="display:none;"><span>Caution Deposit Used</span><span id="billingCautionUsed">− ₹0</span></div>
+        <div class="ledger-row total"><span>Transfer Amount</span><span id="billingTransfer">₹0</span></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><span class="panel-step">4</span>Payment</div>
+
+        <div class="payment-qr-block">
+          <img class="qr-image" src="images/payment-qr.png" alt="UPI payment QR code">
+          <div class="payment-details">
+            <span>Scan to pay via UPI</span>
+            <strong id="upiIdDisplay"></strong>
+            <span>Pay the exact transfer amount shown above</span>
+          </div>
+        </div>
+
+        <label class="upload-zone" id="uploadZone">
+          <input type="file" id="screenshotInput" accept="image/*">
+          <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+          <div class="upload-text">Upload payment screenshot</div>
+          <div class="upload-hint" id="uploadHint">PNG or JPG, click or drag to upload</div>
+        </label>
+
+        <div class="upload-preview" id="uploadPreview">
+          <img id="uploadPreviewImg" alt="Payment screenshot preview">
+          <div class="upload-preview-info">
+            <strong id="uploadPreviewName"></strong>
+            <span id="uploadPreviewSize"></span>
+          </div>
+          <span class="upload-replace">Replace</span>
+        </div>
+      </div>
+
+      <div class="submit-panel">
+        <button class="btn btn-navy btn-block" id="submitOrderBtn">Submit Order</button>
+        <div class="form-status" id="formStatus"></div>
+        <div class="submit-note">By submitting, you confirm the payment screenshot matches the transfer amount above.</div>
       </div>
     </div>
   </div>
