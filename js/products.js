@@ -14,46 +14,50 @@ const SIZE_OPTIONS = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
 // wire them into the relevant products below once supplied.
 const SIZE_GUIDE_TEE = 'images/size-guide-tee.jpg';
 const SIZE_GUIDE_HOODIE = 'images/size-guide-hoodie.jpg';
+const SIZE_GUIDE_POLO = 'images/size-guide-polo.jpg';
 
 const PRODUCTS = [
   {
     code: 'POLO-BLACK',
     name: 'Polo 1',
     section: 'Apparel',
-    price: 599,
+    price: 649,
     description: 'Classic polo, clean and versatile.',
     images: ['images/polo-1.jpg'],
     requiresSize: true,
     sizes: SIZE_OPTIONS,
+    sizeGuideImage: SIZE_GUIDE_POLO,
     extraField: null
   },
   {
     code: 'POLO-BLUE',
     name: 'Polo 2',
     section: 'Apparel',
-    price: 599,
+    price: 649,
     description: 'Classic polo, clean and versatile.',
     images: ['images/polo-2.jpg'],
     requiresSize: true,
     sizes: SIZE_OPTIONS,
+    sizeGuideImage: SIZE_GUIDE_POLO,
     extraField: null
   },
   {
     code: 'POLO-MAROON',
     name: 'Polo 3',
     section: 'Apparel',
-    price: 599,
+    price: 649,
     description: 'Classic polo, clean and versatile.',
     images: ['images/polo-3.jpg'],
     requiresSize: true,
     sizes: SIZE_OPTIONS,
+    sizeGuideImage: SIZE_GUIDE_POLO,
     extraField: null
   },
   {
     code: 'TEE-XLER',
     name: 'Oversized Tee — XLer',
     section: 'Apparel',
-    price: 599,
+    price: 699,
     description: 'Oversized tee with a bold back print.',
     // back shown first, then front — swipe/tap to see both
     images: ['images/tee-xler-back.jpg', 'images/tee-xler-front.jpg'],
@@ -66,7 +70,7 @@ const PRODUCTS = [
     code: 'TEE-SAPNO',
     name: 'Oversized Tee — Sapno',
     section: 'Apparel',
-    price: 649,
+    price: 749,
     description: 'Oversized tee with an embroidered cloud detail.',
     images: ['images/tee-sapno-back.jpg', 'images/tee-sapno-front.jpg'],
     requiresSize: true,
@@ -83,8 +87,8 @@ const PRODUCTS = [
     code: 'HOODIE-DOVE',
     name: 'Hoodie — Dove',
     section: 'Apparel',
-    price: 999,
-    description: 'Hoodie with an embroidered back print.',
+    price: 1049,
+    description: 'Pullover hoodie with a bold back print.',
     images: ['images/hoodie-dove-back.jpg', 'images/hoodie-dove-front.jpg'],
     requiresSize: true,
     sizes: SIZE_OPTIONS,
@@ -100,7 +104,7 @@ const PRODUCTS = [
     code: 'HOODIE-STAMPS',
     name: 'Hoodie — Campus Stamps',
     section: 'Apparel',
-    price: 1050,
+    price: 1099,
     description: 'Full-zip hoodie for easy layering.',
     images: ['images/hoodie-stamps-back.jpg', 'images/hoodie-stamps-front.jpg'],
     requiresSize: true,
@@ -112,7 +116,7 @@ const PRODUCTS = [
     code: 'COORD-QZIP',
     name: 'Half Zip + Shorts Co-ord',
     section: 'Apparel',
-    price: 1500,
+    price: 1599,
     description: 'Matching quarter-zip and shorts set.',
     images: ['images/coord-set.jpg'],
     requiresSize: false,
@@ -139,7 +143,7 @@ const PRODUCTS = [
     code: 'SIPPER-01',
     name: 'XLRI Sipper',
     section: 'Accessories',
-    price: 399,
+    price: 449,
     description: 'Insulated everyday sipper.',
     images: ['images/sipper.jpg'],
     requiresSize: false,
@@ -151,7 +155,7 @@ const PRODUCTS = [
     name: 'Metal Name Plate',
     section: 'Accessories',
     price: 299,
-    description: 'Personalized desk name plate.',
+    description: 'Personalized name plate for desk or hostel door.',
     images: ['images/nameplate.jpg'],
     requiresSize: false,
     sizes: [],
@@ -159,14 +163,14 @@ const PRODUCTS = [
       type: 'text',
       label: 'Name for plate',
       placeholder: 'e.g. KUNAL',
-      maxLength: 14
+      maxLength: 17
     }
   },
   {
     code: 'MAGNET-KUDIYA',
     name: 'Magnet — XL Ki Kudiya',
     section: 'Accessories',
-    price: 75,
+    price: 99,
     description: 'Fridge magnet.',
     images: ['images/magnet-kudiya.jpg'],
     requiresSize: false,
@@ -177,7 +181,7 @@ const PRODUCTS = [
     code: 'MAGNET-CAMPUS',
     name: 'Magnet — Campus',
     section: 'Accessories',
-    price: 75,
+    price: 99,
     description: 'Fridge magnet.',
     images: ['images/magnet-campus.jpg'],
     requiresSize: false,
