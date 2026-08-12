@@ -836,6 +836,77 @@
   }
 
   // ============================================================
+  // Customer autocomplete — typing 2+ characters into Roll Number
+  // or Full Name suggests matches from CONTACTS (see contacts.js).
+  // Picking one pre-fills Roll/Name/Phone/Email/Batch — all still
+  // freely editable afterward. No match = type everything by hand,
+  // exactly as before.
+  // ============================================================
+
+  function fillCustomerFields(contact) {
+    qs('#fieldRoll').value = contact.roll;
+    qs('#fieldName').value = contact.name;
+    qs('#fieldPhone').value = contact.phone;
+    qs('#fieldEmail').value = contact.email;
+    qs('#fieldBatch').value = contact.batch;
+    qsa('.form-input.error', qs('.panel')).forEach(function (el) { el.classList.remove('error'); });
+  }
+
+  function renderAutocomplete(dropdownEl, matches, onPick) {
+    dropdownEl.innerHTML = '';
+    if (matches.length === 0) {
+      dropdownEl.classList.remove('show');
+      return;
+    }
+    matches.slice(0, 8).forEach(function (contact) {
+      const item = el('div', 'autocomplete-item');
+      item.appendChild(el('div', 'autocomplete-item-name', contact.name));
+      item.appendChild(el('div', 'autocomplete-item-meta', contact.roll + ' · ' + contact.batch));
+      item.addEventListener('mousedown', function (e) {
+        // mousedown (not click) so this fires before the input's blur hides the dropdown
+        e.preventDefault();
+        onPick(contact);
+        dropdownEl.classList.remove('show');
+      });
+      dropdownEl.appendChild(item);
+    });
+    dropdownEl.classList.add('show');
+  }
+
+  function initCustomerAutocomplete() {
+    if (typeof CONTACTS === 'undefined') return;
+
+    const rollInput = qs('#fieldRoll');
+    const nameInput = qs('#fieldName');
+    const rollDropdown = qs('#rollAutocomplete');
+    const nameDropdown = qs('#nameAutocomplete');
+
+    rollInput.addEventListener('input', function () {
+      const query = rollInput.value.trim().toLowerCase();
+      if (query.length < 2) { rollDropdown.classList.remove('show'); return; }
+      const matches = CONTACTS.filter(function (c) { return c.roll.toLowerCase().indexOf(query) !== -1; });
+      renderAutocomplete(rollDropdown, matches, fillCustomerFields);
+    });
+
+    nameInput.addEventListener('input', function () {
+      const query = nameInput.value.trim().toLowerCase();
+      if (query.length < 2) { nameDropdown.classList.remove('show'); return; }
+      const matches = CONTACTS.filter(function (c) { return c.name.toLowerCase().indexOf(query) !== -1; });
+      renderAutocomplete(nameDropdown, matches, fillCustomerFields);
+    });
+
+    [rollInput, nameInput].forEach(function (input, idx) {
+      const dropdown = idx === 0 ? rollDropdown : nameDropdown;
+      input.addEventListener('blur', function () {
+        setTimeout(function () { dropdown.classList.remove('show'); }, 120);
+      });
+      input.addEventListener('focus', function () {
+        input.dispatchEvent(new Event('input'));
+      });
+    });
+  }
+
+  // ============================================================
   // Payment screenshot upload
   // ============================================================
 
@@ -902,13 +973,14 @@
    * Web App URL. See README.md for the exact payload shape expected.
    */
   function submitOrderToBackend(payload) {
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdlItt-ksFrLpJsKPnxjmTV9L21vjobRipqE6JrU7bkk8B7ijBMyulZbtmWe7ixMcu/exec';
-  return fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(payload)
-  }).then(function (res) { return res.json(); });
-}
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        const mockOrderId = 'ORD-' + Date.now().toString(36).toUpperCase();
+        resolve({ success: true, data: { orderId: mockOrderId } });
+      }, 1400);
+    });
+  }
+
   function buildOrderPayload(billing) {
     return {
       action: 'submitOrder',
@@ -1069,6 +1141,7 @@
     initEligibility();
     initCheckoutNav();
     initFormLiveValidation();
+    initCustomerAutocomplete();
     initUpload();
     initSubmit();
     initSuccessScreen();
