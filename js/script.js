@@ -968,17 +968,15 @@
   // ============================================================
 
   /**
-   * BACKEND INTEGRATION POINT
-   * Replace with a real fetch() call to the deployed Apps Script
-   * Web App URL. See README.md for the exact payload shape expected.
+   * Connected to the live Apps Script backend.
    */
   function submitOrderToBackend(payload) {
-    return new Promise(function (resolve) {
-      setTimeout(function () {
-        const mockOrderId = 'ORD-' + Date.now().toString(36).toUpperCase();
-        resolve({ success: true, data: { orderId: mockOrderId } });
-      }, 1400);
-    });
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdlItt-ksFrLpJsKPnxjmTV9L21vjobRipqE6JrU7bkk8B7ijBMyulZbtmWe7ixMcu/exec';
+    return fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(function (res) { return res.json(); });
   }
 
   function buildOrderPayload(billing) {
