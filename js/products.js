@@ -15,6 +15,12 @@ const SIZE_OPTIONS = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
 const SIZE_GUIDE_TEE = 'images/size-guide-tee.jpg';
 const SIZE_GUIDE_HOODIE = 'images/size-guide-hoodie.jpg';
 const SIZE_GUIDE_POLO = 'images/size-guide-polo.jpg';
+const SIZE_GUIDE_SHORTS = 'images/size-guide-shorts.jpg';
+
+// The shorts chart only covers XS–XXL (no XXXL row provided), so the
+// shorts size group offers one fewer option than everything else —
+// keeps every selectable pill backed by real chart data.
+const SHORTS_SIZE_OPTIONS = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 const PRODUCTS = [
   {
@@ -121,10 +127,10 @@ const PRODUCTS = [
     images: ['images/coord-set.jpg'],
     requiresSize: false,
     sizes: [],
-    // Two independent size choices — one per piece.
+    // Two independent size choices — one per piece, each with its own guide.
     sizeGroups: [
-      { key: 'zipper', label: 'Half Zipper Size', options: SIZE_OPTIONS },
-      { key: 'shorts', label: 'Shorts Size', options: SIZE_OPTIONS }
+      { key: 'zipper', label: 'Half Zipper Size', options: SIZE_OPTIONS, sizeGuideImage: SIZE_GUIDE_HOODIE },
+      { key: 'shorts', label: 'Shorts Size', options: SHORTS_SIZE_OPTIONS, sizeGuideImage: SIZE_GUIDE_SHORTS }
     ],
     extraField: null
   },

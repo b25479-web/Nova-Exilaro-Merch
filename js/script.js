@@ -220,7 +220,7 @@
     // multiple independent size choices (e.g. co-ord set: top + bottom)
     if (product.sizeGroups) {
       product.sizeGroups.forEach(function (group) {
-        options.appendChild(buildOptionLabel(group.label, product.sizeGuideImage));
+        options.appendChild(buildOptionLabel(group.label, group.sizeGuideImage));
         const row = el('div', 'size-row');
         group.options.forEach(function (size) {
           const pill = el('button', 'size-pill', size);
